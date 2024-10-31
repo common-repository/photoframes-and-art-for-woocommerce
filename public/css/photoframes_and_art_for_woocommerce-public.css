@@ -1,0 +1,590 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+ 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 14px;
+    line-height: 1.7em;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #333;
+    padding-bottom: 10px;
+    line-height: 1em;
+    font-weight: 500;
+}
+.framed-art-editor-container {
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+.photoart-accordion {
+    background-color: #dbb35c;
+    color: #fff;
+    cursor: pointer;
+    padding: 18px;
+    border-radius: 6px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    position: relative;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-family: Open Sans,Arial,sans-serif;
+    font-weight: 500;
+}
+.photoart-accordion:before {
+    content: "\f067";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    right: 18px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.photoart-accordion.active:before {
+    content: "\f068";
+}
+.photoart-acc-main {
+    margin-bottom: 15px;
+}
+.photoart-acc-main:last-child {
+    margin: 0;
+}
+.photoart-accordion.active {
+    background-color: #7e5a05;
+}
+.photoart-accordion:hover,
+.photoart-accordion:focus {
+    background-color: #7e5a05;
+    text-decoration: none;
+}
+button.photoart-accordion.danger {
+    background: #f64e60;
+}
+.photoart-panel {
+    padding: 0 15px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+    border: 1px solid #eff0f1;
+}
+.framed-art-editor-column.framed-art-options {
+    width: 330px;
+}
+.framed-art-editor-column.framed-art-canvas {
+    width: 630px;
+    padding: 0 15px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.framed-art-editor-column.framed-art-result {
+    width: 300px;
+    -webkit-box-shadow: 0 0 30px 0 rgb(82 63 105 / 5%);
+    box-shadow: 0 0 30px 0 rgb(82 63 105 / 5%);
+    border: 0;
+    padding: 15px;
+    background: #eff0f1;
+    border-radius: 6px;
+}
+table.photoart-form-control-table {
+    width: 100%;
+    border: 0;
+    margin: 0;
+}
+table.photoart-form-control-table td {
+    border: 0;
+    padding: 0;
+}
+table.photoart-form-result td {
+    border: 0;
+    padding: 0;
+}
+table.photoart-form-control-table td p {
+    margin-bottom: 15px;
+}
+.photoart-form-control {
+    margin: 15px 5px;
+}
+.photoart-form-control input#mount_board_size {
+    width: 100%;
+    background: #eff0f1;
+    border-radius: 10px;
+}
+.border-size-td .photoart-form-control {
+    width: 80px;
+    margin: 10px auto;
+    text-align: center;
+}
+.border-size-td .photoart-form-control input {
+    text-align: center;
+}
+.photoart-form-control input[type=text],
+.photoart-form-control input[type=number] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #eff0f1;
+    border: 1px solid #dbb35c;
+    font-size: 13px;
+    color: #666;
+}
+.framed-art-result .photoart-result {
+    margin-bottom: 20px;
+}
+table.photoart-form-result {
+    width: 100%;
+    margin-top: 50px;
+    border: 0;
+    margin: 0;
+}
+.photoart-form-control p.dpi-notice.danger {
+    color: #f64e60;
+    font-size: 15px;
+    font-weight: bold;
+}
+.photoart-form-control p.dpi-notice.warning {
+    color: #ffa800;
+    font-size: 15px;
+    font-weight: bold;
+}
+.photoart-form-control label,
+p.dpi-score {
+    font-weight: 600;
+    font-size: 15px;
+    color: #181c32;
+}
+.photoart-form-control p.maximum-dpi {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+.photoart-form-control .select-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #eff0f1;
+    border: 1px solid #dbb35c;
+    font-size: 13px;
+    color: #666;
+}
+.background-list,
+.image-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+.image-list .last,
+.background-list .last {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b6b5c4;
+    font-size: 16px;
+}
+.image-list {
+    margin-bottom: 15px;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+.image-list .image,
+.background-list .background {
+    width: 140px;
+    height: 110px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    border-radius: 6px;
+    position: relative;
+}
+.image-list .image img,
+.background-list .background img {
+    box-shadow: 0px 0px 4px 1px #d3ced2;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.background-list .background.last i,
+.image-list .image.last i {
+    z-index: -1;
+}
+.background-list .background.last,
+.image-list .image.last {
+    border: #b6b5c4 dashed 2px;
+}
+.img-delete-btn {
+    appearance: none;
+    -webkit-appearance: none;
+    background: #f64e60;
+    color: #ffffff !important;
+    opacity: 0.9;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s linear;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+.img-delete-btn:hover {
+    color: #fff !important;
+}
+.subtext-p {
+    margin: 20px 0 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+img.background-selected,
+img.layer-image-selected {
+    box-shadow: 0px 0px 4px 1px #0080ff !important;
+}
+p.background-title {
+    padding-bottom: 1em !important;
+    font-weight: bold;
+}
+.photoart-form-control label {
+    color: #181c32;
+}
+td p label,
+p.help {
+    color: #181c32;
+    font-weight: 600;
+    font-size: 15px;
+}
+.p-detail-wrapper p {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    font-weight: 600;
+    font-size: 15px;
+    color: #181c32;
+}
+table.photoart-form-result tr td:last-child {
+    text-align: right;
+}
+.framed-art-options-mobile,
+.f-art-opt-close {
+    display: none;
+}
+#image-canvas-container {
+    border-radius: 5px;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin: 10px 0 0 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#frame-material-image {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+}
+.frame-material-image.thin {
+    border-width: 4px;
+    border-style: solid;
+}
+.frame-material-image.standard {
+    border-width: 6px;
+    border-style: solid;
+}
+.frame-material-image.large {
+    border-width: 8px;
+    border-style: solid;
+}
+.frame-material-image.square {
+    border-width: 7px;
+    border-style: solid;
+}
+#image-canvas-container #map {
+    position: relative;
+}
+#image-canvas-container #map img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    object-position: center;
+}
+.photoart-form-result a.photoart-btn-add-to-cart {
+    background: #dbb35c;
+    padding: 13px 30px 13px 30px;
+    color: #ffffff !important;
+    border-radius: 25px;
+    font-size: 14px;
+    line-height: 1.7em;
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+.photoart-form-result a.photoart-btn-view-cart {
+    background: #7e5a05;
+    padding: 13px 30px 13px 30px;
+    color: #ffffff !important;
+    border-radius: 25px;
+    font-size: 14px;
+    line-height: 1.7em;
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+ul.units.d-inline-flex {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 0;
+    list-style: none;
+}
+ul.units.d-inline-flex li {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+}
+.photoart-form-control label{
+    margin: 0;
+    line-height: 1.6;
+    display: inline-block;
+}
+
+.frame-material-image .mount-board-img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.photoart-form-control.single-mount-board-size {
+    display: none;
+}
+.photoart-form-control.single-mount-board-size.show {
+    display: block;
+}
+.single-mount-board-size output {
+    font-weight: bold;
+}
+.photoart-form-result tr.photoart-framing.hide,
+.photoart-form-result tr.photoart-glass.hide,
+.photoart-form-result tr.photoart-window-mount.hide,
+.photoart-form-result tr.photoart-fixture.hide,
+.photoart-form-result tr.photoart-mounting.hide {
+    visibility: collapse;
+}
+.photoart-form-result tr.photoart-framing.show,
+.photoart-form-result tr.photoart-glass.show,
+.photoart-form-result tr.photoart-window-mount.show,
+.photoart-form-result tr.photoart-fixture.show,
+.photoart-form-result tr.photoart-mounting.show {
+    visibility: inherit;
+}
+.photoart-form-control input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.photoart-form-control input[type="number"] {
+    -moz-appearance: textfield;
+}
+table.photoart-form-result tr td:last-child h5:last-child {
+    font-weight: bold;
+}
+table.photoart-form-result tbody tr:last-child td h5 {
+    font-size: 20px;
+    font-weight: 600;
+}
+.dz-details,
+.dz-success-mark,
+.dz-success-mark,
+.dz-error-mark,
+a.dz-remove,
+.dz-image {
+    display: none;
+}
+.framed-art-editor-column.framed-art-canvas .background-list .background.first.background-selected {
+    box-shadow: 0px 0px 4px 1px #0080ff !important;
+}
+.mount-board-img.box-shadow {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.framed-art-result h5.p-area-title {
+    margin: 0;
+    color: #333;
+    padding-bottom: 10px;
+    line-height: 1em;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: normal;
+}
+.photoart-result .photoart-form-result h5 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    padding-bottom: 10px;
+    line-height: 1em;
+    font-weight: 500;
+}
+.frame-material-image.not-allowed {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+.framed-art-canvas .no-background {
+    background-color: #fffcee;
+    cursor: not-allowed;
+}
+.framed-art-canvas .background-list .background.first {
+    background: #fffcee;
+}
+.photoart-form-result a.disabled {
+    pointer-events: none;
+    cursor: default;
+    background: #ccc;
+    color: #ebe9eb !important;
+}
+p.shipping-cost-text {
+    margin-top: 50px;
+    font-size: 15px;
+    color: #666;
+    line-height: 1.7em;
+    font-weight: 600;
+}
+.no-background #map #frame-material-image {
+    transform: unset !important;
+}
+table {
+    border-collapse: collapse  !important;
+    border-spacing: 0 !important;
+}
+table.photoart-form-result tr td p {
+    font-family: Open Sans,sans-serif;
+    font-size: 15px;
+    color: #666;
+    line-height: 1.7em;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+@media screen and (max-width:1199px) {
+    .framed-art-editor-column.framed-art-canvas {
+        max-width: 500px;
+    }
+    .photoart-form-control {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+@media screen and (max-width:991px) {
+    .framed-art-editor-container {
+        flex-wrap: wrap;
+    }
+    .framed-art-editor-column.framed-art-canvas {
+        max-width: 60%;
+    }
+    .framed-art-editor-column.framed-art-options,
+    .framed-art-editor-column.framed-art-result {
+        width: 40%;
+    }
+}
+@media screen and (max-width:767px) {
+    .framed-art-editor-column.framed-art-canvas {
+        max-width: 100%;
+    }
+    .framed-art-editor-column.framed-art-options,
+    .framed-art-editor-column.framed-art-result {
+        width: 100%;
+    }
+    .framed-art-options-mobile,
+    .f-art-opt-close {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+    .framed-art-options {
+        background: white;
+        padding: 30px;
+        width: 100% !important;
+        position: fixed;
+        top: 0;
+        left: 0px;
+        transform: translateX(-100%);
+        padding-top: 50px;
+        z-index: 99999;
+        overflow-y: scroll;
+        height: 100vh;
+        transition: all .5s ease;
+    }
+    .framed-art-options.active {
+        transform: translateX(0%);
+    }
+    .f-art-opt-toggle {
+        background: #dcb35f;
+        color: #fff !important;
+        padding: 10px 20px;
+        border-radius: 6px;
+        min-width: 220px;
+        display: inline-block;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .framed-art-editor-column.framed-art-canvas {
+        margin: 20px auto;
+    }
+    .f-art-opt-close {
+        text-align: right;
+        margin-top: -45px;
+        font-size: 24px;
+        padding: 10px 0;
+        line-height: 30px;
+    }
+    .border-size-td .photoart-form-control {
+        width: 150px;
+    }
+}
+@media screen and (max-width:575px) {
+    .border-size-td .photoart-form-control {
+        width: 100px;
+    }
+    .image-list,
+    .background-list {
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+    }
+    .image-list .image,
+    .background-list .background {
+        width: 40%;
+    }
+    .background-list .background.last,
+    .image-list .image.last {
+        padding: 25px;
+    }
+    div#image-canvas-container {
+        padding-bottom: 70%;
+    }
+}
